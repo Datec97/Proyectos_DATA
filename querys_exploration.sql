@@ -8,11 +8,10 @@ from db_covid_data..tb_covid_deaths cd
 order by 1,2
 
 
--- Select data what we are going to be using
+-- Select data (fields) what we are going to be using
 
 select cd1.continent,cd1.location, cd1.date,  cd1.total_cases, cd1.total_deaths, cd1.population
 from db_covid_data..tb_covid_deaths cd1
-where cd1.location='Peru'
 order by 3
 
 
@@ -142,7 +141,13 @@ alter column total_cases float
 		from tb_covid_deaths
 		where continent is not null
 		group by continent
-		order by total_cases desc
+		order by total_deaths desc
+
+		-- ¿total de casos y muertes a nivel global?
+		select sum(new_cases) as total_cases, sum(new_deaths) as total_deaths, sum(new_deaths)/sum(new_cases) * 100 as PercentageDeaths
+		from tb_covid_deaths
+		where continent is not null
+		order by total_cases, total_deaths desc
 
 		-- ¿continente con mayor cantidad de muertes?
 		select continent, sum(new_cases) as total_cases, sum(new_deaths) as total_deaths, sum(new_deaths)/sum(new_cases) * 100 as PercentageDeaths
