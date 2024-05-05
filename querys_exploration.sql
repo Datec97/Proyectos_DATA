@@ -142,12 +142,22 @@ alter column total_cases float
 		where continent is not null
 		group by continent
 		order by total_deaths desc
-
-		-- ¿total de casos y muertes a nivel global?
+		
+		-- ¿total de casos y muertes a nivel global? (check)
 		select sum(new_cases) as total_cases, sum(new_deaths) as total_deaths, sum(new_deaths)/sum(new_cases) * 100 as PercentageDeaths
 		from tb_covid_deaths
 		where continent is not null
 		order by total_cases, total_deaths desc
+
+		-- ¿Total de muertes registrados por país? (check)
+		select
+		tcd.location, SUM(cast(tcd.new_deaths as int)) as TotalDeathCount, MAX(tcd.date)
+		from dbo.tb_covid_deaths tcd
+		where tcd.continent is not null 
+		and tcd.location not in ('European Union','World','International')
+		group by tcd.location
+		order by TotalDeathCount desc
+
 
 		-- ¿continente con mayor cantidad de muertes?
 		select continent, sum(new_cases) as total_cases, sum(new_deaths) as total_deaths, sum(new_deaths)/sum(new_cases) * 100 as PercentageDeaths
