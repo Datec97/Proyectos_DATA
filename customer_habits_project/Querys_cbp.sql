@@ -28,7 +28,7 @@ where YEAR(tfp.date) = '2023'
 group by location
 order by unidades_vendidas desc
 
---¿Cuál fue el producto más vendido en esa tienda el 2024, por genero?
+--¿Ranking de productos más vendidos por género, el 2024?
 
 select 
 case 
@@ -49,7 +49,7 @@ order by Tot_prod_vendidos desc
 
 
 
--- Preferencias de compra por rango de edades
+-- ¿Ranking de preferencias de compra por rango de edades?
 
 select 
 	CASE
@@ -81,7 +81,7 @@ select TOP(1)
 from dbo.tb_fact_purch tfp
 left join dbo.tb_product tbp on tbp.cod_item = tfp.id_product
 left join dbo.tb_customer tbc on tbc.[Customer ID] = tfp.id_customer
-where tbc.Gender = 'Female' 
+where tbc.Gender = 'Male' 
 and tfp.units IN (select max(units) from tb_fact_purch)
 
 group by tbc.Gender, tbp.[Item Purchased]
@@ -99,7 +99,7 @@ group by tbp.[Item Purchased]
 order by Calific_articulo desc
 
 
--- Método de pago más utiizado por rango de edad
+-- ¿Ranking de métodos de pago más utilizado por rango etario?
 
 SELECT 
 
@@ -124,7 +124,7 @@ order by Metodo_pago desc
 
 
 
--- Tipo de envío mas solicitado por genero
+--¿Ranking de tipos de envío mas solicitado por genero?
 
 select 
 case 
@@ -166,7 +166,7 @@ group by tbcu.Name,tbf.[Subscription Status]
 	order by Ingresos desc
 
 
--- Productos que generaron altos ingresos en el ultimo trimestre del 2023
+-- ¿Ranking de ingresos por producto en el ultimo trimestre del 2023?
 
 	select 
 		case 
