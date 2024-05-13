@@ -1,4 +1,4 @@
-# project: Covido global 👩👩‍🦰👨🔬💉
+# project: Covid 19 - global 👩👩‍🦰👨🔬💉
   <p>Este proyecto tiene como propósito brindarnos información sobre las cifras e indicadores del progreso de esta enfermedad que ha causado daños economicos y sociales a nivel mundial.</p>
   </hr>
   <p>Que insights podemos obtener de este valioso dataset: </p>
