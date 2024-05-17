@@ -1,0 +1,10 @@
+*******DETALE************************************************************************************
+
+Validar el posicionamiento de palabras clave en dominio en especifico de google 
+
+
+********¿Cuál es la importancia?*************************************************************
+
+Por ejemplo. en un sitio o dominio, blog se necesita saber cuales son las palabras más buscadas
+o ingresadas por los usuarios, para conocer las tendencias y patrones de navegación en ese sector.
+En ese caso, contamos con miles o millones de registros a procesar y analizar.
