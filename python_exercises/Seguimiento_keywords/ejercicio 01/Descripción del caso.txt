@@ -1,0 +1,11 @@
+*******DETALE************************************************************************************
+
+Se necesita desarollar, a través de un menu de consola, una tarea en python que nos permita obtener 
+las palabras clave o "keyword" de un archivo .txt relacionado al ranking de palabras más buscadas.
+
+
+********¿Cuál es la importancia?*************************************************************
+
+Por ejemplo. en un sitio o dominio, blog se necesita saber cuales son las palabras más buscadas
+o ingresadas por los usuarios, para conocer las tendencias y patrones de navegación en ese sector.
+En ese caso, contamos con miles o millones de registros a procesar y analizar.
