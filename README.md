@@ -4,6 +4,7 @@
       <li>✔✨Orientado a consultas especificas de un dataset</li>
       <li>✔✨Creación de procedimientos almacenados para automatizar tareas</li>
       <li>✔✨Limpieza y trasnformación en código</li>
+      <li>✔✨Desarrollo de tareas automatizadas en python</li>
       <li>✔✨mucho más...</li>
   </h3>
       
