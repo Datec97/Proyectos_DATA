@@ -1,11 +1,10 @@
-<h1># LIMPIEZA DE DATOS CON PYTHON 🐍</h1>
-<h2><b>En este apartado, vamos a preparar los datos para su puesta en producción</b></h2>
-  <p><h3> ¿Con qué herramientas se trabajará?:<h3></p>
-      <li>✔✨Biblioteca Pandas y Seaborn</li>
-      <li>✔✨Conexión con OneDrive</li>
-      <li>✔✨Entorno: Google Collaboratory o google colab</li>
-      <li>✔✨IDE: Jupyter Notebook</li>
-      <li>✔✨mucho más...</li>
+<h1># EJERCICIOS CON PYTHON 🐍</h1>
+<h2><b>Estos ejercicios,nos ayuda a conocer y entender la relevancia de Python
+	en proyectos de ciencia y análisis de datos</b></h2>
+      <li>✔Web Scrapping</li>
+      <li>✔ETL y automatización</li>
+      <li>✔Limpieza y preparación de datos en google Colab</li>
+      <li>✔mucho más...</li>
   </h3>
       
 
