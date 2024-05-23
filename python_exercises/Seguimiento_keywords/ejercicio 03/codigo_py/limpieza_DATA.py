@@ -37,3 +37,11 @@ dataf.info()
 
 dataf.shape
 
+""" Datos faltantes -> Se procede a eliminar las filas cuyos campos presenten un valor no especificado o vacio"""
+"""  Recordermos:   CASO DE MISSING VALUES
+        * Nat -> caso columna tipo de dato: datetime
+        * NaN -> caso columna tipo de dato: Numérico
+        * <Na> -> caso columna tipo de datos: Nullable
+ """
+""" Eliminamos dichos registros y actualizamos la tabla o BD original """
+dataf.dropna(inplace=True)
