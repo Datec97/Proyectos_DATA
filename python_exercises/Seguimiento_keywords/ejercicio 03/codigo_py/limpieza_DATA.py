@@ -61,3 +61,17 @@ if unicos == 1:
   print("La columna de var. categórica tiene ",{unicos}," subnivel")
 else:
   print("La columna de var. categórica tiene ",{unicos}," subniveles")
+
+
+  """ 2DA FORMA """
+cols_categ = ['job','marital','education','default','housing','loan','contact','month','poutcome','y']
+
+for columnita in cols_categ:
+  print(f"columna:{columnita} 'presenta' {dataf[columnita].nunique()} subniveles")
+
+
+""" Elimianción de duplicados """
+
+dataf.drop_duplicates(inplace=True)
+dataf.shape
+
