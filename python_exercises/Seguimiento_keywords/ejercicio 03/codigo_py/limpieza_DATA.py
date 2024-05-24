@@ -45,3 +45,19 @@ dataf.shape
  """
 """ Eliminamos dichos registros y actualizamos la tabla o BD original """
 dataf.dropna(inplace=True)
+
+
+''' Columna irrelevante:
+Puede ser debido a ..
+* No aporta información o no guarda relación con lo que se está buscando
+* Tiene valores repetidos o redundante
+* Columna de variable categórica de un solo nivel
+* Columna de variable numérica de un solo valor
+'''
+
+""" 1RA FORMA DE SOLUCIÓN: """
+unicos = dataf['y'].nunique()
+if unicos == 1:
+  print("La columna de var. categórica tiene ",{unicos}," subnivel")
+else:
+  print("La columna de var. categórica tiene ",{unicos}," subniveles")
