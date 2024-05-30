@@ -10,9 +10,12 @@ Original file is located at
 """ importanción de librerias """
 import pandas as pd
 import seaborn as sb
+import matplotlib as plt
 
 """ conexión con la nube """
-from google.colab import drive
+from google.colab import drive # type: ignore
+
+
 drive.mount('/gdrive')
 
 """ referencia de ruta """
@@ -74,4 +77,33 @@ for columnita in cols_categ:
 
 dataf.drop_duplicates(inplace=True)
 dataf.shape
+
+
+''' Otliers -> valores atipicos encontrados en los dataset,
+    * Se puede manejar, con una eliminación, una transofrmación, un tratamiento estadístico
+    * Es importante, hacer una evaluación previa y determinar como manejar estos datos,
+      ya que pueden aportar alto valor en la información.
+
+ Para esta evaluación, se necesita:
+ Generar gráficas individuales  para columnas con tipo de dato numérico'''
+
+cols_num = ['age','balance','day','duration','campaign','pdays','previous']
+
+fig, ax = plt.subplots(nrows=7, ncols=1, figsize=(8,30))
+fig.subplots_adjust(hspace=0.5)
+
+for i, col in enumerate(cols_num):
+  sb.boxplot(x=col, data=dataf, ax=ax[i])
+  ax[i].set_title(col)
+
+
+"""1ro consideremos solamente edades menores iguales que 100 """
+dataf = dataf[dataf['age'] <= 100]
+
+""" 2do, eliminación de valores negativos de la columna: duración """
+dataf = dataf[dataf['duration'] > 0]
+
+""" Previous call , vamos a cosndierar solo menores o iguales que 100"""
+dataf = dataf[dataf['previous'] <= 100] 
+
 
