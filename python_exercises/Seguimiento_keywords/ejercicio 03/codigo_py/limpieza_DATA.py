@@ -97,13 +97,66 @@ for i, col in enumerate(cols_num):
   ax[i].set_title(col)
 
 
-"""1ro consideremos solamente edades menores iguales que 100 """
+#1ro consideremos solamente edades menores iguales que 100 
 dataf = dataf[dataf['age'] <= 100]
 
-""" 2do, eliminación de valores negativos de la columna: duración """
+# 2do, eliminación de valores negativos de la columna: duración
 dataf = dataf[dataf['duration'] > 0]
 
-""" Previous call , vamos a cosndierar solo menores o iguales que 100"""
+# Previous call , vamos a cosndierar solo menores o iguales que 100
 dataf = dataf[dataf['previous'] <= 100] 
 
 
+''' Limpieza: errores ortográficos,
+
+ Gráficar con countplot(), los subniveles de las variables categóricas '''
+
+cols_cat = ['job', 'marital', 'education', 'default', 'housing', 'loan','contact', 'month', 'poutcome','y']
+
+fig, ax = plt.subplots(nrows=10, ncols=1, figsize=(10,30))
+fig.subplots_adjust(hspace=1)
+
+  #Enumerate() ha llamado a cols_cat como un objeto iterable, '''
+for i, col in enumerate(cols_cat):
+  #uso de gráfico de conteo
+  sb.countplot(x=col, data=dataf, ax=ax[i])
+  ax[i].set_title(col)
+  ax[i].set_xticklabels(ax[i].get_xticklabels(),rotation=30)
+
+
+# para la limpieza: vamos a pasar los subniveles que comienzan con MAYUSC o son todos MAYUSC a minuscula
+
+for i,columns in enumerate(dataf.columns,1):
+  if columns in cols_cat :
+    dataf[columns] = dataf[columns].str.lower()
+    print(f"columna {i} : {columns}")
+
+#Respecto a columna Job, vamos a unir 'admin.' con 'administrative'
+
+print(dataf['job'].unique())
+dataf['job'] = dataf['job'].str.replace('admin.','administrative')
+print(dataf['job'].unique())
+
+#Respecto a columna marital, vamos a unir 'div.' con 'divorced'
+
+print(dataf['marital'].unique())
+dataf['marital'] = dataf['marital'].str.replace('div.','divorced')
+print(dataf['marital'].unique())
+
+#Respecto a columna marital, vamos a unir 'sec.' con 'secondary'
+
+print(dataf['education'].unique())
+dataf['education'] = dataf['education'].str.replace('sec.','secondary')
+print(dataf['education'].unique())
+
+#Respecto a columna contact, vamos a unir 'phone' con 'telephone'
+
+print(dataf['contact'].unique())
+dataf[dataf['contact']=='phone'] = 'telephone'
+print(dataf['contact'].unique())
+
+#Respecto a columna contact, vamos a unir 'unk' con 'unknown'
+
+print(dataf['poutcome'].unique())
+dataf[dataf['poutcome']=='unk'] = 'unknown'
+print(dataf['poutcome'].unique())
